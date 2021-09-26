@@ -1,27 +1,28 @@
 package learning.techmaze.project;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
+    private ProgressDialog mLoadingBar ;
+
 
      TextView sign_in ; // This textView is on signup activity which will redirect you to sing in activity
 
-     private EditText inputUserName, input_email, input_password, input_confirmPassword ;
-     Button btn_signUp ;
-
-
-
-
+    private EditText inputUserName, input_email, input_password, input_confirmPassword ;
+    Button btn_signUp ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +30,15 @@ public class RegisterActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_register);
 
+        mAuth = FirebaseAuth.getInstance(); // firebase mAuth to connect with firebase
+
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON);
         sign_in = findViewById(R.id.tv_signIn);
         inputUserName = findViewById(R.id.inputUserName);
         input_email = findViewById(R.id.input_email);
         input_password = findViewById(R.id.input_password);
         input_confirmPassword = findViewById(R.id.input_confirmPassword);
+        mLoadingBar = new ProgressDialog(RegisterActivity.this);
 
         btn_signUp =findViewById(R.id.btn_signUp);
         btn_signUp.setOnClickListener(new View.OnClickListener() {
@@ -44,9 +48,6 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
-
-
-
 
         sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
         {
             showError(inputUserName , "You username is not Valid") ;
         }
-        else if (email.isEmpty() || !email.contains("@gmail"))
+        else if (email.isEmpty() || !email.contains("@"))
         {
               showError(input_email,"Please Enter a Valid Email");
         }
@@ -85,7 +86,10 @@ public class RegisterActivity extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(this, "Call Registration Method", Toast.LENGTH_SHORT).show();
+           mLoadingBar.setTitle("Registration");
+           mLoadingBar.setMessage("Please wait");
+           mLoadingBar.setCanceledOnTouchOutside(false);
+           mLoadingBar.show();
         }
 
     }
