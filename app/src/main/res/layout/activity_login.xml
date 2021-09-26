@@ -8,7 +8,7 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/tv_SignIn"
+        android:id="@+id/tv_Reset_Paaword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.19999999" />
 
     <EditText
-        android:id="@+id/login_email"
+        android:id="@+id/enter_emailToResetPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_SignIn" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_Reset_Paaword" />
 
     <EditText
         android:id="@+id/login_password"
@@ -61,10 +61,10 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/login_email"
+        app:layout_constraintEnd_toEndOf="@+id/enter_emailToResetPassword"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/login_email"
-        app:layout_constraintTop_toBottomOf="@+id/login_email" />
+        app:layout_constraintStart_toStartOf="@+id/enter_emailToResetPassword"
+        app:layout_constraintTop_toBottomOf="@+id/enter_emailToResetPassword" />
 
     <TextView
         android:id="@+id/tv_forget_password"
@@ -77,11 +77,11 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/tv_register_user"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btn_signIN"
-        app:layout_constraintTop_toBottomOf="@+id/btn_signIN" />
+        app:layout_constraintStart_toStartOf="@+id/btn_ResetPassword"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ResetPassword" />
 
     <Button
-        android:id="@+id/btn_signIN"
+        android:id="@+id/btn_ResetPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -103,8 +103,8 @@
         android:layout_marginTop="36dp"
         android:text="Register"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_signIN"
+        app:layout_constraintEnd_toEndOf="@+id/btn_ResetPassword"
         app:layout_constraintStart_toEndOf="@+id/tv_forget_password"
-        app:layout_constraintTop_toBottomOf="@+id/btn_signIN" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_ResetPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
