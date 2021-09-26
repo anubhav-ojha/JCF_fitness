@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -19,7 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText login_email ;
     EditText login_password ;
     Button btn_signIN ;
-    FirebaseAuth firebaseAuth;
+    //FirebaseAuth firebaseAuth;
 
 
     @Override
