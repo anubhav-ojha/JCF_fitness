@@ -22,10 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private ProgressDialog mLoadingBar ;
-
-
      TextView sign_in ; // This textView is on signup activity which will redirect you to sing in activity
-
     private EditText inputUserName, input_email, input_password, input_confirmPassword ;
     Button btn_signUp ;
 
@@ -61,11 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
-
     private void checkCredentials() {
 
         String username=inputUserName.getText().toString() ;
@@ -102,6 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
                    if(task.isSuccessful()){
                        Toast.makeText(RegisterActivity.this, "Succefully Registered", Toast.LENGTH_SHORT).show();
 
+                       mLoadingBar.dismiss();
                        Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                        startActivity(intent);
@@ -109,6 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
                    else
                    {
                        Toast.makeText(RegisterActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+
                    }
                }
            });
@@ -117,8 +112,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void showError(EditText input, String s) {
-
-
         input.setError(s);
         input.requestFocus() ;
 
